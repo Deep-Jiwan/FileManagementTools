@@ -1,7 +1,7 @@
 import os
 import shutil
 
-cwd = "C:/Users/Deep/Downloads"
+cwd = os.path.dirname(os.path.abspath(__file__))
 unpack_folder = os.path.join(cwd, "unsorted")
 
 def unpack_folder_contents(folder_path):

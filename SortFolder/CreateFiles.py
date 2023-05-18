@@ -9,7 +9,7 @@ file_extensions = {
 }
 
 # Path of the folder where the dummy files will be created
-folder_path = "C:/Users/Deep/Downloads/"
+folder_path = os.path.dirname(os.path.abspath(__file__))
 
 # Loop through each category of file extensions
 for category, extensions in file_extensions.items():

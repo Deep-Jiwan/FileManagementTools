@@ -15,6 +15,8 @@ I believe linux should also work. If anyone could test that for me and report ba
 
 You can use the CreateTest.py / .exe to test out this script
 
+I understand that making an exe might not be optimal. But in future version the exe will have a gui that the user can interact and give the script options on how to run (I dont know how to do this yet)
+
 
 
 # What is this script?
@@ -36,7 +38,7 @@ It will also add a number sequence at the start (01 02 03 04 05)..
 
 - 2. Cross check that all files are present and folders have the correct names (You dont need to give sequence to the folders. They will be selected alphabetically.) Your output file will take the name of the folder.
     In this case:
-            - Root Folder / 00 FINAL / CombineThis.pdf
+            - Root Folder / 00 FINAL / 01 CombineThis.pdf 
 
 - 3. Run the script / executable and you're done!
 

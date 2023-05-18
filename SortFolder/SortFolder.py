@@ -2,7 +2,7 @@ import os
 import shutil
 import time
 
-cwd = "C:/Users/Deep/Downloads/"
+cwd = os.path.dirname(os.path.abspath(__file__))
 unsorted_folder_path = cwd#os.path.join(cwd, "unsorted")
 
 # create the folders if they don't exist

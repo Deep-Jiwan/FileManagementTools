@@ -7,12 +7,12 @@ from reportlab.pdfgen import canvas
 fake = Faker()
 
 # Get the current directory where the script file is located
-script_directory = os.path.dirname(os.path.abspath(__file__))
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Create five folders
 for i in range(1, 6):
     folder_name = f"Folder_{i}"
-    folder_path = os.path.join(script_directory, folder_name)
+    folder_path = os.path.join(script_dir, folder_name)
     os.makedirs(folder_path)
 
     # Create two JPEG files
