@@ -2,9 +2,9 @@
 
 This script uses 2 python modules that you may need to install if you plan to develop this script
 
-/pip install pillow
+    pip install pillow
 
-/pip install pypdf2
+    pip install pypdf2
 
 I have made a exe, but that should only work in windows. 
 The python sript does work in Mac machine but i have no idea how to make the executable.
