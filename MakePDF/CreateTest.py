@@ -1,19 +1,32 @@
 import os
+import sys
+import tempfile
 from faker import Faker
 from PIL import Image, ImageDraw, ImageFont
 from reportlab.pdfgen import canvas
+import shutil
 
 # Set up Faker for generating sample data
 fake = Faker()
 
-# Get the current directory where the script file is located
-script_dir = os.path.dirname(os.path.abspath(__file__))
+# Get the directory where the script or executable is located
+def get_script_folder():
+    if getattr(sys, 'frozen', False):
+        script_path = os.path.dirname(sys.executable)
+    else:
+        script_path = os.path.dirname(os.path.abspath(sys.modules['__main__'].__file__))
+    return script_path
+
+script_directory = get_script_folder()
+
+# Specify the desired path for creating the folders and files
+base_path = script_directory
 
 # Create five folders
 for i in range(1, 6):
     folder_name = f"Folder_{i}"
-    folder_path = os.path.join(script_dir, folder_name)
-    os.makedirs(folder_path)
+    folder_path = os.path.join(base_path, folder_name)
+    os.makedirs(folder_path, exist_ok=True)
 
     # Create two JPEG files
     for j in range(1, 3):
@@ -51,5 +64,8 @@ for i in range(1, 6):
         # Generate sample data for the text file
         text_data = fake.text(max_nb_chars=200)
         file.write(text_data)
+
+    # Print the path where the files and folders are created
+    print(f"Files and folders created at: {folder_path}")
 
 print("Folders and files created successfully.")

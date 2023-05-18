@@ -1,11 +1,14 @@
 import os
+import sys
 import shutil
 from PIL import Image
 from PyPDF2 import PdfWriter, PdfReader
 import datetime
 
 # Get the directory path of the script
-script_dir = os.path.dirname(os.path.abspath(__file__))
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+os.chdir(script_dir)
+
 
 # Function to convert image files to PDF
 def convert_image_to_pdf(image_path, pdf_writer):
