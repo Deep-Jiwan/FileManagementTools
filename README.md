@@ -4,12 +4,15 @@
 
 (No that was not a pointer to a pointer of type Warning...)
 
+** Credit : I have used CHATGPT to help me make these tools. They arent enterily my code, but i have brought my ideas to life.
+
 Nice..
 
 Ok so welcome to this project.. its basically a collection of sripts in python made to simplify file management.
 This will be a series of diffetent tools that will be constantly upgraded and made more awesome.
 
-What do i want you to do? 
+# What do i want you to do? 
+
 Well..
 
 Firstly, Download and test it out.. how did you find it? was it easy? Have i saved 3 hrs of your life? - Let me know
@@ -25,6 +28,6 @@ Yeah that all for the intro of these tools. Hope they are helpful to you.
 Each tool will have its dedicated desription and use.
 
 
-** NEEDED 
+# ** NEEDED 
 
 Somebody to help me figure out how collaboration works here...
