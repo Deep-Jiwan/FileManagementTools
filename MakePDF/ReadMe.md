@@ -2,9 +2,9 @@
 
 This script uses 2 python modules that you may need to install if you plan to develop this script
 
-pip install pillow
+/pip install pillow
 
-pip install pypdf2
+/pip install pypdf2
 
 I have made a exe, but that should only work in windows. 
 The python sript does work in Mac machine but i have no idea how to make the executable.
@@ -27,6 +27,7 @@ It will also add a number sequence at the start (01 02 03 04 05)..
 
 - 1. Place the script / executable in the root of the folders that have the files to be combined.
         Meaning something like this:
+
             - Root Folder / CombineThis / yourfileshere.pdf
 
             Place the script / executable in the path 
