@@ -4,6 +4,7 @@ This script uses 2 python modules that you may need to install if you plan to de
 
     pip install pillow
 
+
     pip install pypdf2
 
 I have made a exe, but that should only work in windows. 
