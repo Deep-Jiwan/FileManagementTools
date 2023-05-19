@@ -1,7 +1,8 @@
 import os
+import sys
 import random
 import string
-
+import time
 
 # Dictionary containing various file extensions
 file_extensions = {
@@ -9,7 +10,25 @@ file_extensions = {
 }
 
 # Path of the folder where the dummy files will be created
-folder_path = os.path.dirname(os.path.abspath(__file__))
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+os.chdir(script_dir)
+
+# Function to display progress bar
+def print_progress_bar(iteration, total, prefix='', suffix='', length=30, fill='█'):
+    percent = '{0:.1f}'.format(100 * (iteration / float(total)))
+    filled_length = int(length * iteration // total)
+    bar = fill * filled_length + '-' * (length - filled_length)
+    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end='\r')
+    if iteration == total:
+        print()
+
+# Calculate the total number of files to create
+total_files = sum(len(extensions) for extensions in file_extensions.values()) * 5
+print(f"Creating {total_files} files now.")
+
+# Initialize counters
+progress = 0
+current_file = 0
 
 # Loop through each category of file extensions
 for category, extensions in file_extensions.items():
@@ -20,10 +39,20 @@ for category, extensions in file_extensions.items():
             # Generate a random name for the file
             file_name = ''.join(random.choices(string.ascii_lowercase, k=10)) + '.' + ext
             # Create the file in the specified folder
-            file_path = os.path.join(folder_path, category, file_name)
+            file_path = os.path.join(script_dir, category, file_name)
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
             # Generate a random size for the file between 1 MB to 20 MB
             file_size = random.randint(1, 20) * 1024 * 1024
             # Create the file with random data of the specified size
             with open(file_path, 'wb') as f:
                 f.write(os.urandom(file_size))
+            # Update progress counters
+            current_file += 1
+            progress_percentage = current_file / total_files * 100
+            # Update progress bar
+            print_progress_bar(progress_percentage, 100, prefix='Progress:', suffix='Complete', length=30)
+            #time.sleep(0.1)  # Add a slight delay for better visualization
+
+print("All files created successfully!")
+
+time.sleep(5)

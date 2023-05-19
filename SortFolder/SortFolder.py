@@ -1,9 +1,14 @@
 import os
 import shutil
 import time
+import sys
 
-cwd = os.path.dirname(os.path.abspath(__file__))
-unsorted_folder_path = cwd#os.path.join(cwd, "unsorted")
+
+# Get the sript location
+
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+os.chdir(script_dir)
+unsorted_folder_path = os.path.join(script_dir, "unsorted")
 
 # create the folders if they don't exist
 folders = {
@@ -39,7 +44,7 @@ for folder_name, extensions in folders.items():
 start_time = time.time()
 
 for folder_name, extensions in folders.items():
-    folder_path = os.path.join(cwd, folder_name)
+    folder_path = os.path.join(script_dir, folder_name)
     os.makedirs(folder_path, exist_ok=True)
 
 for item_name in os.listdir(unsorted_folder_path):
@@ -52,11 +57,11 @@ for item_name in os.listdir(unsorted_folder_path):
                     if "/" in folder_name:
                         subfolder_name = folder_name.split("/")[-1]
                         folder_name = "/".join(folder_name.split("/")[:-1])
-                        subfolder_path = os.path.join(cwd, folder_name, subfolder_name)
+                        subfolder_path = os.path.join(script_dir, folder_name, subfolder_name)
                         os.makedirs(subfolder_path, exist_ok=True)
                         new_path = os.path.join(subfolder_path, item_name)
                     else:
-                        new_path = os.path.join(cwd, folder_name, item_name)
+                        new_path = os.path.join(script_dir, folder_name, item_name)
                     shutil.move(item_path, new_path)
                     print(f"Moved {item_name} to {new_path}.")
                     break
