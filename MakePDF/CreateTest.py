@@ -1,10 +1,8 @@
 import os
 import sys
-import tempfile
 from faker import Faker
 from PIL import Image, ImageDraw, ImageFont
 from reportlab.pdfgen import canvas
-import shutil
 
 # Set up Faker for generating sample data
 fake = Faker()
